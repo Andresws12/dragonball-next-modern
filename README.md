@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dragonball Next Modern 🐉
 
-## Getting Started
+This is a Next.js project generated with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and configured to provide a modern, scalable web experience.
 
-First, run the development server:
+## Table of Contents 📑
+
+- [Installation](#installation)
+- [Development Usage](#development-usage)
+- [Building and Deployment](#building-and-deployment)
+- [Project Structure](#project-structure)
+- [Technologies](#technologies)
+- [Resources and Configuration](#resources-and-configuration)
+- [Environment Variables](#environment-variables)
+
+## Installation 🚀
+
+1. Make sure you have the recommended Node version installed (v23.3.0).
+2. Install project dependencies using [pnpm](https://pnpm.io/):
+
+    ```bash
+    pnpm install
+    ```
+
+## Development Usage 💻
+
+To start the development server, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building and Deployment 🏗️
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Build for production:**
 
-## Learn More
+    ```bash
+    pnpm build
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+- **Start the application in production mode:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    pnpm start
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For more details about deployment, check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
-## Deploy on Vercel
+## Project Structure 📂
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is organized as follows:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+.
+├── .env               # Environment variables definition
+├── .gitignore         # Files and folders ignored by Git
+├── next.config.ts     # Next.js configuration
+├── package.json       # Project scripts and dependencies
+├── pnpm-lock.yaml     # pnpm lockfile
+├── tsconfig.json      # TypeScript configuration
+├── components.json    # Components configuration (shadcn/UI)
+├── public             # Static files (images, SVGs, etc.)
+└── src
+    ├── app/         # Pages, layouts and API (includes app/page.tsx, app/api, etc.)
+    ├── components/  # Reusable components (app-sidebar, nav-main, ui, etc.)
+    ├── hooks/       # Custom hooks
+    ├── lib/         # Utilities and global configuration
+    ├── server/      # API and server logic
+    └── trpc/        # tRPC configuration and clients
+```
+
+## Technologies 🛠️
+
+- **Next.js**: Robust React framework. Check [Next.js Documentation](https://nextjs.org/docs) for details.
+- **TypeScript**: Typed language, configured in [tsconfig.json](tsconfig.json).
+- **Tailwind CSS**: Used for creating modern interfaces.
+- **tRPC**: Type-safe client-server communication.
+- **ESLint** and **Prettier**: Tools to ensure code quality and formatting.
+
+## Resources and Configuration ⚙️
+
+- **Prettier**: Configured in [prettier.config.mjs](prettier.config.mjs)
+- **PostCSS**: Configuration in [postcss.config.mjs](postcss.config.mjs)
+- **ESLint**: Configured in [eslint.config.mjs](eslint.config.mjs)
+- **UI Components**: Configuration in [components.json](components.json)
+
+## Environment Variables 🔐
+
+Environment variables configuration is managed in the [.env](.env) file:
+
+```properties
+API_URL="https://dragonball-api.com/api"
+```
+
+---
+
+Enjoy working on **Dragonball Next Modern** and contribute to making this project exceptional! 🎉
