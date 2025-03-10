@@ -1,8 +1,9 @@
 import { BookOpen, GalleryVerticalEnd, SquareTerminal } from "lucide-react";
+import NextImage from "next/image";
 import * as React from "react";
 
-import { NavMain } from "@/components/nav-main";
-import { NavUser } from "@/components/nav-user";
+import { NavMain } from "@/components/navigation/nav-main";
+import { NavUser } from "@/components/navigation/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -34,11 +35,11 @@ const data = {
       items: [
         {
           title: "Listado",
-          url: "#",
+          url: "listado",
         },
         {
           title: "Buscar",
-          url: "#",
+          url: "buscar",
         },
       ],
     },
@@ -49,7 +50,7 @@ const data = {
       items: [
         {
           title: "Introduction",
-          url: "#",
+          url: "introduction",
         },
       ],
     },
@@ -82,7 +83,15 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader></SidebarHeader>
+      <SidebarHeader>
+        <NextImage
+          src="/logo.webp"
+          alt="Logo"
+          width={120}
+          height={40}
+          style={{ objectFit: "contain" }}
+        />
+      </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>

@@ -1,12 +1,19 @@
 "use client";
 import Layout from "@/components/layout";
-import { api } from "@/trpc/react";
+import CtaSection from "@/components/sections/home/cta-section";
+import FeaturesSection from "@/components/sections/home/features-section";
+import FooterSection from "@/components/sections/home/footer-section";
+import HeroSection from "@/components/sections/home/hero-section";
+import TechnologiesSection from "@/components/sections/home/technologies-section";
 
 export default function Home() {
-  const { data } = api.characters.getCharacter.useQuery({ characterID: 1 });
   return (
     <Layout>
-      <h1>{JSON.stringify(data)}</h1>
+      <HeroSection />
+      <FeaturesSection />
+      <TechnologiesSection />
+      <CtaSection />
+      <FooterSection />
     </Layout>
   );
 }

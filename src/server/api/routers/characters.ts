@@ -1,8 +1,8 @@
-// API:
 import { AxiosError } from "axios";
 import { z } from "zod";
 
 import apiClient, { handleApiError } from "@/lib/axiosClient";
+import { CharactersResponseSchema } from "@/server/api/schemas/charactersResponse";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
@@ -16,15 +16,21 @@ export const charactersRouter = createTRPCRouter({
     .query(async ({ input }) => {
       const { characterID } = input;
       try {
-        const character = await apiClient.get(`characters`, {
-          params: {
-            id: characterID,
-          },
+        const response = await apiClient.get(`characters`, {
+          params: { id: characterID },
         });
 
-        return {
-          ...character.data,
-        };
+        const parsedResponse = CharactersResponseSchema.safeParse(
+          response.data,
+        );
+        if (!parsedResponse.success) {
+          throw new Error("El formato de la respuesta es inválido");
+        }
+        if (parsedResponse.data.items.length === 0) {
+          throw new Error("No se encontró el personaje");
+        }
+
+        return parsedResponse.data;
       } catch (err) {
         handleApiError(err as AxiosError);
         throw err;

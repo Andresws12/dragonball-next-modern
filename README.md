@@ -17,9 +17,9 @@ This is a Next.js project generated with [`create-next-app`](https://nextjs.org/
 1. Make sure you have the recommended Node version installed (v23.3.0).
 2. Install project dependencies using [pnpm](https://pnpm.io/):
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 ## Development Usage 💻
 
@@ -35,15 +35,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 
 - **Build for production:**
 
-    ```bash
-    pnpm build
-    ```
+  ```bash
+  pnpm build
+  ```
 
 - **Start the application in production mode:**
 
-    ```bash
-    pnpm start
-    ```
+  ```bash
+  pnpm start
+  ```
 
 For more details about deployment, check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
