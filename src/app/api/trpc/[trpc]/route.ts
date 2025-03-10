@@ -3,7 +3,6 @@ import { type NextRequest } from "next/server";
 
 import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
-import tRPCPlugin from "cloudflare-pages-plugin-trpc";
 
 /**
  * This helper wraps `createTRPCContext` and provides the required context
@@ -17,7 +16,7 @@ const createContext = async (opts: { req: Request | NextRequest; headers?: Heade
   });
 };
 
-// Handler for Next.js (optional, if you're still using it)
+// Handler for Next.js
 const handler = (req: NextRequest) =>
   fetchRequestHandler({
     endpoint: "/api/trpc",
@@ -36,18 +35,3 @@ const handler = (req: NextRequest) =>
   });
 
 export { handler as GET, handler as POST };
-
-// Export for Cloudflare Pages Functions with tRPCPlugin
-export const onRequest = tRPCPlugin({
-  router: appRouter,
-  endpoint: "/api/trpc",
-  createContext,
-  onError:
-    process.env.NODE_ENV === "development"
-      ? ({ path, error }: { path: string | undefined; error: Error }) => {
-          console.error(
-            `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`
-          );
-        }
-      : undefined,
-});
