@@ -1,4 +1,5 @@
-import { BookOpen, GalleryVerticalEnd, SquareTerminal } from "lucide-react";
+"use client";
+import { GalleryVerticalEnd, SquareTerminal } from "lucide-react";
 import NextImage from "next/image";
 import * as React from "react";
 
@@ -37,23 +38,23 @@ const data = {
           title: "Listado",
           url: "listado",
         },
-        {
-          title: "Buscar",
-          url: "buscar",
-        },
+        // {
+        //   title: "Buscar",
+        //   url: "buscar",
+        // },
       ],
     },
-    {
-      title: "Documentación",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "introduction",
-        },
-      ],
-    },
+    // {
+    //   title: "Documentación",
+    //   url: "#",
+    //   icon: BookOpen,
+    //   items: [
+    //     {
+    //       title: "Introduction",
+    //       url: "introduction",
+    //     },
+    //   ],
+    // },
     // {
     //   title: "Settings",
     //   url: "#",

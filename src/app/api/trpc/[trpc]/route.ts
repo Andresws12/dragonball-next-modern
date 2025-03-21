@@ -8,7 +8,11 @@ import { createTRPCContext } from "@/server/api/trpc";
  * This helper wraps `createTRPCContext` and provides the required context
  * for the tRPC API when handling an HTTP request.
  */
-const createContext = async (opts: { req: Request | NextRequest; headers?: Headers; env?: unknown }) => {
+const createContext = async (opts: {
+  req: Request | NextRequest;
+  headers?: Headers;
+  env?: unknown;
+}) => {
   return createTRPCContext({
     ...opts,
     req: opts.req as NextRequest,
@@ -28,7 +32,7 @@ const handler = (req: NextRequest) =>
       process.env.NODE_ENV === "development"
         ? ({ path, error }: { path: string | undefined; error: Error }) => {
             console.error(
-              `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`
+              `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`,
             );
           }
         : undefined,
